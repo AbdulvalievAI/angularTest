@@ -1,0 +1,10 @@
+.life-components {
+  &__block {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

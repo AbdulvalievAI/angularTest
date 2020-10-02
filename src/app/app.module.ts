@@ -34,5 +34,6 @@ import { NgContentTemplateItemComponent } from './pages/ng-content-template/ng-c
     MyMaterialModule,
   ],
   bootstrap: [AppComponent],
+  providers: [],
 })
 export class AppModule {}

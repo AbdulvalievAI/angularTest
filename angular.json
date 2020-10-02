@@ -125,6 +125,127 @@
           }
         }
       }
+    },
+    "testNewApp": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/testNewApp",
+      "sourceRoot": "projects/testNewApp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/testNewApp",
+            "index": "projects/testNewApp/src/index.html",
+            "main": "projects/testNewApp/src/main.ts",
+            "polyfills": "projects/testNewApp/src/polyfills.ts",
+            "tsConfig": "projects/testNewApp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/testNewApp/src/favicon.ico",
+              "projects/testNewApp/src/assets"
+            ],
+            "styles": [
+              "projects/testNewApp/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/testNewApp/src/environments/environment.ts",
+                  "with": "projects/testNewApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "testNewApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "testNewApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "testNewApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/testNewApp/src/test.ts",
+            "polyfills": "projects/testNewApp/src/polyfills.ts",
+            "tsConfig": "projects/testNewApp/tsconfig.spec.json",
+            "karmaConfig": "projects/testNewApp/karma.conf.js",
+            "assets": [
+              "projects/testNewApp/src/favicon.ico",
+              "projects/testNewApp/src/assets"
+            ],
+            "styles": [
+              "projects/testNewApp/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/testNewApp/tsconfig.app.json",
+              "projects/testNewApp/tsconfig.spec.json",
+              "projects/testNewApp/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/testNewApp/e2e/protractor.conf.js",
+            "devServerTarget": "testNewApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "testNewApp:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "angularTest"

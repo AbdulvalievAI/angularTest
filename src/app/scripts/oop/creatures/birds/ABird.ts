@@ -1,16 +1,10 @@
-import { ICreature } from '../ICreature';
+import { ICreatureEventsHandlers } from '../ICreatureEventsHandlers';
+import { ACreature } from '../ACreature';
 
 /** Существо птица(попугай, орёл, воробей...). */
-export abstract class ABird implements ICreature {
-  protected constructor(
-    readonly name: string,
-    readonly size: number,
-    readonly stamina: number,
-    readonly weight: number,
-    readonly virtual3DModel: string
-  ) {}
-
-
+export abstract class ABird
+  extends ACreature
+  implements ICreatureEventsHandlers {
   abstract onNutrition(): void;
 
   abstract onFoodExtraction(): void;
@@ -24,8 +18,8 @@ export abstract class ABird implements ICreature {
 
   /** Event handler чистка перьев */
   public onClearFeathers(): void {
-      console.log('======> onClearFeathers');
-      console.log('=> Чищу перья');
+    console.log('======> onClearFeathers');
+    console.log('=> Чищу перья');
   }
 
   /** Event handler создание птичего гнезда */

@@ -1,61 +1,57 @@
-import { Parrot } from './birds/parrot';
 import { CreatureService } from './creature.service';
 import { Crow } from './birds/crow';
 import { Lion } from './cats/lion';
 import { Lynx } from './cats/lynx';
 import { RoseFlower } from './plants/roseFlower';
 import { AppleTree } from './plants/appleTree';
-import { Tree } from './plants/tree';
+import { CreatureFactory } from './creatureFactory';
+import { ECreature } from './ECreature';
 
-const myParrot = new Parrot(
-  'Красный попугай',
-  12,
-  100,
-  3,
-  '3dModelRedParrot'
-);
-const myCrow = new Crow(
-  'Бело-чёрная ворона',
-  20,
-  100,
-  7,
-  '3dModelWhiteBlackCrow'
-);
-const myLion = new Lion(
-  'Лев сованны',
-  30,
-  100,
-  15,
-  '3dModelLion'
-);
-const myLynx = new Lynx(
-  'Канадская рысь',
-  22,
-  100,
-  11,
-  '3dModelCanadaLynx'
-);
-const myRoseFlower = new RoseFlower(
-  'Красная роза',
-  7,
-  100,
-  2,
-  '3dModelRedRose'
-);
-const myAppleTree = new AppleTree(
-  'Дерево зелёных яблок',
-  50,
-  100,
-  35,
-  '3dModelGreenAppleTree'
-);
-const myTree = new Tree(
-  'Ель',
-  55,
-  100,
-  40,
-  '3dModelSpruceTree'
-);
+const creatureFactory = new CreatureFactory();
+
+const myParrot = creatureFactory.create(ECreature.Parrot, {
+  name: 'Красный попугай',
+  weight: 12,
+  size: 100,
+  stamina: 3,
+  virtual3DModel: '3dModelRedParrot',
+});
+const myCrow = creatureFactory.create(ECreature.Crow, {
+  name: 'Бело-чёрная ворона',
+  weight: 20,
+  size: 100,
+  stamina: 7,
+  virtual3DModel: '3dModelWhiteBlackCrow',
+});
+
+const myLion = creatureFactory.create(ECreature.Lion, {
+  name: 'Лев сованны',
+  weight: 30,
+  size: 100,
+  stamina: 15,
+  virtual3DModel: '3dModelLion',
+});
+const myLynx = creatureFactory.create(ECreature.Lynx, {
+  name: 'Канадская рысь',
+  weight: 22,
+  size: 100,
+  stamina: 11,
+  virtual3DModel: '3dModelCanadaLynx',
+});
+const myRoseFlower = creatureFactory.create(ECreature.RoseFlower, {
+  name: 'Красная роза',
+  weight: 7,
+  size: 100,
+  stamina: 2,
+  virtual3DModel: '3dModelRedRose',
+});
+const myAppleTree = creatureFactory.create(ECreature.AppleTree, {
+  name: 'Дерево зелёных яблок',
+  weight: 50,
+  size: 100,
+  stamina: 35,
+  virtual3DModel: '3dModelGreenAppleTree',
+});
 
 console.log('=====================myParrot======================');
 CreatureService.printCreature(myParrot);
@@ -116,15 +112,6 @@ myAppleTree.onNutrition();
 myAppleTree.onGrowFlowers();
 myAppleTree.onEmitFloralScent();
 myAppleTree.onGrowFetus();
-console.log('  ');
-console.log('  ');
-
-console.log('=====================Tree======================');
-CreatureService.printCreature(myTree);
-myTree.onFoodExtraction();
-myTree.onNutrition();
-
-
 
 // 1. Инкапсуляция
 //     ограничение доступа к составляющим объект компонентам (методам, переменным, атрибутам...).

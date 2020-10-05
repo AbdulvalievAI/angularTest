@@ -2,16 +2,6 @@ import { ABird } from './ABird';
 
 /** Ворона */
 export class Crow extends ABird {
-  constructor(
-    name: string,
-    size: number,
-    stamina: number,
-    weight: number,
-    virtual3DModel: string
-  ) {
-    super(name, size, stamina, weight, virtual3DModel);
-  }
-
   public onNutrition(): void {
     console.log('======> onNutrition');
     console.log(`=> Кушаю - жука`);

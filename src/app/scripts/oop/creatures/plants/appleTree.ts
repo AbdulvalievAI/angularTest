@@ -4,16 +4,6 @@ import { IFetusPlant } from './IFetusPlant';
 
 /** Яблочное дерево */
 export class AppleTree extends APlant implements IFlower, IFetusPlant {
-  constructor(
-      name: string,
-      size: number,
-      stamina: number,
-      weight: number,
-      virtual3DModel: string
-  ) {
-      super(name, size, stamina, weight, virtual3DModel);
-  }
-
   public onEmitFloralScent(): void {
     console.log('======> onEmitFloralScent');
     console.log('=> Выращиваю белые цветки яблочного дерева');

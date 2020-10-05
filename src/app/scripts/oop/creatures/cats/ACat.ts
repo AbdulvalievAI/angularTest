@@ -1,15 +1,10 @@
-import {ICreature} from '../ICreature';
+import { ACreature } from '../ACreature';
+import { ICreatureEventsHandlers } from '../ICreatureEventsHandlers';
 
 /** Кошка */
-export abstract class ACat implements ICreature {
-  protected constructor(
-    readonly name: string,
-    readonly size: number,
-    readonly stamina: number,
-    readonly weight: number,
-    readonly virtual3DModel: string
-  ) {}
-
+export abstract class ACat
+  extends ACreature
+  implements ICreatureEventsHandlers {
   abstract onNutrition(): void;
 
   abstract onFoodExtraction(): void;
@@ -30,4 +25,3 @@ export abstract class ACat implements ICreature {
     console.log(`=> Вылизываю свою шерсть`);
   }
 }
-

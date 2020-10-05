@@ -1,15 +1,10 @@
-import { ICreature } from '../ICreature';
+import { ICreatureEventsHandlers } from '../ICreatureEventsHandlers';
+import { ACreature } from '../ACreature';
 
 /** Растение */
-export abstract class APlant implements ICreature {
-  protected constructor(
-    readonly name: string,
-    readonly size: number,
-    readonly stamina: number,
-    readonly weight: number,
-    readonly virtual3DModel: string
-  ) {}
-
+export abstract class APlant
+  extends ACreature
+  implements ICreatureEventsHandlers {
   public onNutrition(): void {
     console.log('======> onFoodExtraction');
     console.log('=> Усваиваю все поглощённые вещества');

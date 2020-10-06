@@ -10,7 +10,7 @@ import { Tree } from './plants/tree';
 
 /** Паттерн: Фабричный метод */
 export class CreatureFactory {
-  create(type: ECreature, creature: ICreature): any {
+  static create(type: ECreature, creature: ICreature): any {
     switch (type) {
       case 'Crow':
         return new Crow(creature);

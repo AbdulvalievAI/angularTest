@@ -1,9 +1,4 @@
 import { CreatureService } from './creature.service';
-import { Crow } from './birds/crow';
-import { Lion } from './cats/lion';
-import { Lynx } from './cats/lynx';
-import { RoseFlower } from './plants/roseFlower';
-import { AppleTree } from './plants/appleTree';
 import { CreatureFactory } from './creatureFactory';
 import { ECreature } from './ECreature';
 

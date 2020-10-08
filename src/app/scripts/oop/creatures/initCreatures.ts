@@ -16,7 +16,6 @@ const myCrow = CreatureFactory.create(ECreature.Crow, {
   stamina: 7,
   virtual3DModel: '3dModelWhiteBlackCrow',
 });
-
 const myLion = CreatureFactory.create(ECreature.Lion, {
   name: 'Лев сованны',
   weight: 30,

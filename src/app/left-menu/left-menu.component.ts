@@ -29,5 +29,9 @@ export class LeftMenuComponent {
       title: 'NG Content / Template',
       route: 'ng-content-template',
     },
+    {
+      title: 'Fetch data',
+      route: 'fetch-data',
+    },
   ];
 }

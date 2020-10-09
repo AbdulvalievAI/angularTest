@@ -6,6 +6,7 @@ import { ExpansionPanelComponent } from './pages/expansion-panel/expansion-panel
 import { TypographyComponent } from './pages/typography/typography.component';
 import { LifeComponentsComponent } from './pages/life-components/life-components.component';
 import { NgContentTemplateComponent } from './pages/ng-content-template/ng-content-template.component';
+import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'ng-content-template',
     component: NgContentTemplateComponent,
   },
+  {
+    path: 'fetch-data',
+    component: FetchDataComponent,
+  }
 ];
 
 @NgModule({

@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyMaterialModule } from './my-material/my-material.module';
 
 import { LeftMenuComponent } from './left-menu/left-menu.component';
@@ -14,6 +15,8 @@ import { LifeComponentsComponent } from './pages/life-components/life-components
 import { LifeComponentsItemComponent } from './pages/life-components/life-components-item/life-components-item.component';
 import { NgContentTemplateComponent } from './pages/ng-content-template/ng-content-template.component';
 import { NgContentTemplateItemComponent } from './pages/ng-content-template/ng-content-template-item/ng-content-template-item.component';
+import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,22 @@ import { NgContentTemplateItemComponent } from './pages/ng-content-template/ng-c
     LifeComponentsItemComponent,
     NgContentTemplateComponent,
     NgContentTemplateItemComponent,
+    FetchDataComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MyMaterialModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  bootstrap: [AppComponent],
-  providers: [],
+  bootstrap: [
+    AppComponent,
+  ],
+  providers: [
+    HttpClientModule,
+  ],
 })
 export class AppModule {}

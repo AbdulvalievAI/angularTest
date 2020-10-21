@@ -42,11 +42,7 @@ import { FormsComponent } from './pages/forms/forms.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  bootstrap: [
-    AppComponent,
-  ],
-  providers: [
-    HttpClientModule,
-  ],
+  bootstrap: [AppComponent],
+  providers: [HttpClientModule],
 })
 export class AppModule {}

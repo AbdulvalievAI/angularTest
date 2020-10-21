@@ -5,4 +5,3 @@ export interface IUser {
   money: number;
   age: number;
 }
-

@@ -58,7 +58,7 @@ const routes: Routes = [
       title: 'Forms',
     },
     component: FormsComponent,
-  }
+  },
 ];
 
 @NgModule({

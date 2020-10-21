@@ -2,13 +2,20 @@
 
 <mat-form-field disabled="true" class="example-form-field">
   <mat-label>Filter</mat-label>
-  <input matInput type="text" [value]="filterValue" [formControl]="filterControl">
+  <label>
+    <input
+      matInput
+      type="text"
+      [value]="filterValue"
+      [formControl]="filterControl"
+    />
+  </label>
   <mat-spinner *ngIf="isFilterLoad" class="spinner" diameter="20"></mat-spinner>
 </mat-form-field>
 
 <mat-list role="list" [style.display]="'flex'">
   <mat-list-item role="doc-subtitle" *ngFor="let title of titles">
-    <h2>{{title.toUpperCase()}}</h2>
+    <h2>{{ title.toUpperCase() }}</h2>
   </mat-list-item>
 </mat-list>
 
@@ -16,8 +23,11 @@
 
 <mat-list role="list">
   <mat-list role="list" *ngFor="let user of data" [style.display]="'flex'">
-    <mat-list-item role="listitem" *ngFor="let value of fetchDataService.generateValues(user)">
-      {{value}}
+    <mat-list-item
+      role="listitem"
+      *ngFor="let value of fetchDataService.generateValues(user)"
+    >
+      {{ value }}
     </mat-list-item>
   </mat-list>
 </mat-list>

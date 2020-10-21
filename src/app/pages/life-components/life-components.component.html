@@ -1,7 +1,15 @@
 <h2>life-components</h2>
-<h3>inputValue1: {{inputValue1}}</h3>
-<h3>inputValue2: {{inputValue2}}</h3>
-<h3>outputValue: {{outputValue}}</h3>
-<button mat-button color="primary" (click)="chanceInputValue1()">inputValue1 ++</button>
-<button mat-button color="primary" (click)="chanceInputValue2()">inputValue2 ++</button>
-<app-life-components-item [inputValue1]="inputValue1" [inputValue2]="inputValue2" (outputValueEvent)="onOutputValueEvent($event)"></app-life-components-item>
+<h3>inputValue1: {{ inputValue1 }}</h3>
+<h3>inputValue2: {{ inputValue2 }}</h3>
+<h3>outputValue: {{ outputValue }}</h3>
+<button mat-button color="primary" (click)="chanceInputValue1()">
+  inputValue1 ++
+</button>
+<button mat-button color="primary" (click)="chanceInputValue2()">
+  inputValue2 ++
+</button>
+<app-life-components-item
+  [inputValue1]="inputValue1"
+  [inputValue2]="inputValue2"
+  (outputValueEvent)="onOutputValueEvent($event)"
+></app-life-components-item>

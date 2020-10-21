@@ -12,15 +12,16 @@ export class LeftMenuComponent implements OnInit {
   @Input() snav: MatSidenav;
   public links: Array<ILinkLeftMenu> = [];
 
-  constructor(private _router: Router) {
-  }
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {
     this._router.config.forEach((route) => {
-      if (!route.data || !route.data.title) { return; }
+      if (!route.data || !route.data.title) {
+        return;
+      }
       this.links.push({
         title: route.data.title,
-        path: route.path
+        path: route.path,
       });
     });
   }

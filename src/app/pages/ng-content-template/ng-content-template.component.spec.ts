@@ -8,9 +8,8 @@ describe('NgContentTemplateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgContentTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [NgContentTemplateComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

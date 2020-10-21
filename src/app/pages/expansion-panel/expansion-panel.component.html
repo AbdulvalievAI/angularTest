@@ -25,47 +25,53 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<div  style="margin-top: 32px">
+<div style="margin-top: 32px">
   <mat-accordion>
-    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel
+      [expanded]="step === 1"
+      (opened)="setStep(1)"
+      hideToggle
+    >
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-        <mat-icon >account_circle</mat-icon>
+        <mat-panel-title> Personal data </mat-panel-title>
+        <mat-panel-description> Type your name and age </mat-panel-description>
+        <mat-icon>account_circle</mat-icon>
       </mat-expansion-panel-header>
 
       <mat-form-field>
         <mat-label>First name</mat-label>
-        <input matInput>
+        <label>
+          <input matInput />
+        </label>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Age</mat-label>
-        <input matInput type="number" min="1">
+        <label>
+          <input matInput type="number" min="1" />
+        </label>
       </mat-form-field>
       <mat-action-row>
         <button mat-button color="primary" (click)="nextStep()">Next</button>
       </mat-action-row>
     </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel
+      [expanded]="step === 2"
+      (opened)="setStep(2)"
+      hideToggle
+    >
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Destination
-        </mat-panel-title>
-        <mat-panel-description>
-          Type the country name
-        </mat-panel-description>
+        <mat-panel-title> Destination </mat-panel-title>
+        <mat-panel-description> Type the country name </mat-panel-description>
         <mat-icon>map</mat-icon>
       </mat-expansion-panel-header>
 
       <mat-form-field>
         <mat-label>Country</mat-label>
-        <input matInput>
+        <label>
+          <input matInput />
+        </label>
       </mat-form-field>
 
       <mat-action-row>
@@ -74,11 +80,13 @@
       </mat-action-row>
     </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+    <mat-expansion-panel
+      [expanded]="step === 3"
+      (opened)="setStep(3)"
+      hideToggle
+    >
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Day of the trip
-        </mat-panel-title>
+        <mat-panel-title> Day of the trip </mat-panel-title>
         <mat-panel-description>
           Inform the date you wish to travel
         </mat-panel-description>
@@ -87,7 +95,9 @@
 
       <mat-form-field>
         <mat-label>Country</mat-label>
-        <input matInput>
+        <label>
+          <input matInput />
+        </label>
       </mat-form-field>
 
       <mat-action-row>
@@ -95,7 +105,5 @@
         <button mat-button color="primary" (click)="nextStep()">End</button>
       </mat-action-row>
     </mat-expansion-panel>
-
   </mat-accordion>
 </div>
-

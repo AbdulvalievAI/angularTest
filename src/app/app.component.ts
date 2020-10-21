@@ -14,7 +14,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
@@ -60,9 +59,5 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
-
-  someMethod(asd: any) {
-    this.trigger.openMenu();
   }
 }

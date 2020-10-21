@@ -8,7 +8,7 @@ class ArticleApi {
     const start = end - this.pageSize;
     console.log('start', start);
     console.log('end', end);
-    const result =  this.articles.slice(start, end);
+    const result = this.articles.slice(start, end);
     this.page += 1;
     return result;
   }

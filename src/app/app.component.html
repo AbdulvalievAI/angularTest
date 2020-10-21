@@ -8,29 +8,39 @@
   }"
 >
   <mat-toolbar color="primary" class="toolbar">
-      <button (click)="snav.toggle()" mat-icon-button aria-label="Example icon-button with menu icon">
-        <mat-icon>{{snav.opened ? 'menu_open' : 'menu'}}</mat-icon>
-      </button>
-      <span>My App</span>
-      <span style="margin-left: auto"></span>
-      <button mat-icon-button aria-label="Themes" [matMenuTriggerFor]="menu">
-        <mat-icon>{{_theme == 'light-theme' || _theme == 'light-theme-contrast'  ? 'wb_sunny' : 'nights_stay'}}</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <mat-list style="padding: 0">
-          <button
-            *ngFor="let shoe of typesOfShoes"
-            mat-menu-item
-            (click)="(theme = shoe.value)">
-            <mat-icon>{{shoe.icon}}</mat-icon>
-            <span>{{shoe.title}}</span>
-          </button>
-        </mat-list>
-      </mat-menu>
-    </mat-toolbar>
+    <button
+      (click)="snav.toggle()"
+      mat-icon-button
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>{{ snav.opened ? "menu_open" : "menu" }}</mat-icon>
+    </button>
+    <span>My App</span>
+    <span style="margin-left: auto"></span>
+    <button mat-icon-button aria-label="Themes" [matMenuTriggerFor]="menu">
+      <mat-icon>{{
+        _theme == "light-theme" || _theme == "light-theme-contrast"
+          ? "wb_sunny"
+          : "nights_stay"
+      }}</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <mat-list style="padding: 0">
+        <button
+          *ngFor="let shoe of typesOfShoes"
+          mat-menu-item
+          (click)="theme = shoe.value"
+        >
+          <mat-icon>{{ shoe.icon }}</mat-icon>
+          <span>{{ shoe.title }}</span>
+        </button>
+      </mat-list>
+    </mat-menu>
+  </mat-toolbar>
   <mat-sidenav-container
     class="sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
     >
     <mat-sidenav
       style="min-width: 250px"

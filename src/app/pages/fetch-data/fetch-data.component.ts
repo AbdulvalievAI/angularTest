@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FetchDataService } from './fetch-data.service';
-import { Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
 import { IUser } from './IUser';
 import { FormControl } from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
-  styleUrls: ['./fetch-data.component.scss']
+  styleUrls: ['./fetch-data.component.scss'],
 })
 export class FetchDataComponent implements OnInit, OnDestroy {
   constructor(private fetchDataService: FetchDataService) {}
@@ -26,22 +26,25 @@ export class FetchDataComponent implements OnInit, OnDestroy {
   }
 
   private renderData(): void {
-    this.fetchDataService.getUsers()
+    this.fetchDataService
+      .getUsers()
       .pipe(
-        map(data => {
+        map((data) => {
           console.log('===> map', data);
           this.titles = this.fetchDataService.generateTitles(data[0]);
-          return data.filter(item => {
-            return item.name.toLowerCase().includes(this.filterControl.value.toLowerCase());
+          return data.filter((item) => {
+            return item.name
+              .toLowerCase()
+              .includes(this.filterControl.value.toLowerCase());
           });
-        }),
+        })
       )
       .subscribe({
-        next: data => {
+        next: (data) => {
           console.log('===> next', data);
           this.data = data;
         },
-        error: err => {
+        error: (err) => {
           console.log('===> error', err);
         },
         complete: () => {
@@ -57,10 +60,8 @@ export class FetchDataComponent implements OnInit, OnDestroy {
 
   private initFilter(): void {
     this.filterControl.valueChanges
-      .pipe(
-        debounceTime(1000)
-      )
-      .subscribe(value => {
+      .pipe(debounceTime(1000))
+      .subscribe((value) => {
         console.log('initFilter', value);
         this.isLoadFilter(true);
         this.renderData();

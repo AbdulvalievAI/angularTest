@@ -1,6 +1,7 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let link of links">
     <mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
-    <a matLine [routerLink]="link.route" (click)="snav.toggle()" >{{link.title}}</a>
+    <a matLine [routerLink]="link.path" (click)="snav.toggle()" >{{link.title}}</a>
   </mat-list-item>
 </mat-nav-list>
+

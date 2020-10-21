@@ -1,0 +1,22 @@
+:host {
+  article {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+  mat-radio-button {
+    margin: 5px;
+  }
+  button {
+    margin: 8px 0;
+  }
+}

@@ -18,7 +18,5 @@ const myFunc4 = valueString => {
 const double = (n) => n * 2;
 const increment = (n) => n + 1;
 
-
-
 // 'START=>' |> myFunc1 |> myFunc2 |> myFunc3 |> myFunc4;
 5 |> double |> double |> increment |> double; // 42

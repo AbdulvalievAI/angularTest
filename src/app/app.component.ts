@@ -14,9 +14,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-  mobileQuery: MediaQueryList;
-
-  private _mobileQueryListener: () => void;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -28,15 +25,14 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+  public set theme(typeTheme: string) {
+    this._theme = typeTheme;
   }
+  mobileQuery: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-
-  someMethod(asd: any) {
-    this.trigger.openMenu();
-  }
 
   public _theme = 'light-theme';
   public typesOfShoes = [
@@ -62,7 +58,11 @@ export class AppComponent implements OnDestroy {
     },
   ];
 
-  public set theme(typeTheme: string) {
-    this._theme = typeTheme;
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  someMethod(asd: any) {
+    this.trigger.openMenu();
   }
 }

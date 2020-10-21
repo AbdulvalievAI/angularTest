@@ -1,0 +1,114 @@
+<main>
+  <h1>FORMS</h1>
+  <article>
+    <section>
+      <h2>FORM 1</h2>
+      <form [formGroup]="myFG1">
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your name</mat-label>
+          <input [formControlName]="'name'" matInput [type]="'text'">
+          <mat-error *ngIf="nameFC.errors">
+            {{errorsService.getValidatorMessage(nameFC.errors)}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your surname</mat-label>
+          <input [formControlName]="'surname'" matInput [type]="'text'">
+          <mat-error *ngIf="surnameFC.errors">
+            {{errorsService.getValidatorMessage(surnameFC.errors)}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your email</mat-label>
+          <input [formControlName]="'email'" matInput [type]="'email'">
+          <mat-error *ngIf="emailFC.errors">
+            {{errorsService.getValidatorMessage(emailFC.errors)}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your password</mat-label>
+          <input [formControlName]="'password'" matInput [type]="isHidePass ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="isHidePass = !isHidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isHidePass">
+            <mat-icon>{{isHidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordFC.errors">
+            {{errorsService.getValidatorMessage(passwordFC.errors)}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Repeat your password</mat-label>
+          <input [formControlName]="'passwordConfirm'" matInput [type]="isHidePass ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="isHidePass = !isHidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isHidePass">
+            <mat-icon>{{isHidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordConfirmFC.errors">
+            {{errorsService.getValidatorMessage(passwordConfirmFC.errors)}}
+          </mat-error>
+        </mat-form-field>
+        <label id="example-radio-group-label">Pick your favorite season</label>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          [formControlName]="'language'">
+          <mat-radio-button class="example-radio-button" *ngFor="let language  of languages" [value]="language">
+            {{language}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <button [disabled]="!myFG1.valid" mat-raised-button color="accent">
+          Send
+        </button>
+        <button (click)="printFG1()" mat-raised-button color="primary">Print FG1</button>
+      </form>
+    </section>
+    <section>
+      <h2>FORM 2</h2>
+      <form [formGroup]="myFG2">
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your name</mat-label>
+          <input [formControlName]="'name'" matInput [type]="'text'">
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your surname</mat-label>
+          <input [formControlName]="'surname'" matInput [type]="'text'">
+        </mat-form-field>
+        <mat-form-field [appearance]="appearance">
+          <mat-label>Enter your email</mat-label>
+          <input [formControlName]="'email'" matInput [type]="'email'">
+        </mat-form-field>
+        <button [disabled]="!myFG2.valid" mat-raised-button color="accent">
+          Send
+        </button>
+        <button (click)="printFG2()" mat-raised-button color="primary">Print FG2</button>
+      </form>
+    </section>
+    <section>
+      <h2>FORM 3</h2>
+      <form [formGroup]="myFG3">
+        <button (click)="addPersonHandler()" mat-raised-button color="accent">
+          Add person
+        </button>
+        <mat-error *ngIf="personsFA.errors">
+          {{errorsService.getValidatorMessage(personsFA.errors)}}
+        </mat-error>
+        <ng-container [formArrayName]="'persons'">
+          <div *ngFor="let _ of personsFA.controls; index as i">
+            <mat-form-field [appearance]="appearance">
+              <mat-label>Enter name person</mat-label>
+              <input [formControlName]="i" matInput [type]="'text'">
+              <button mat-icon-button matSuffix (click)="removePersonHandler(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <mat-error *ngIf="personsFA.controls[i].errors">
+                {{errorsService.getValidatorMessage(personsFA.controls[i].errors)}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </ng-container>
+        <button [disabled]="!myFG3.valid" mat-raised-button color="accent">
+          Send
+        </button>
+        <button (click)="printFG3()" mat-raised-button color="primary">Print FG3</button>
+      </form>
+    </section>
+  </article>
+</main>
+

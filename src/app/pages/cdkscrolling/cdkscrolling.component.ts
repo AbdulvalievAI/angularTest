@@ -19,7 +19,6 @@ import {
 export class CDKScrollingComponent implements OnInit, AfterViewInit {
   public itemSize = 50;
   public scrolledIndexChangeNum: number;
-  public heightScroll: number;
 
   @ViewChild('viewport') viewport: CdkVirtualScrollViewport;
   public window: Window;
@@ -33,22 +32,11 @@ export class CDKScrollingComponent implements OnInit, AfterViewInit {
     this.window = window;
   }
 
-  private setHeightScroll(height: number): void {
-    const heightToolBar = this.window.innerWidth >= 600 ? 64 : 56;
-    this.heightScroll = height - heightToolBar;
-    this.viewport.setTotalContentSize(height - heightToolBar);
-  }
-
   public scrolledIndexChange(num: number): void {
     this.scrolledIndexChangeNum = num;
   }
 
   ngAfterViewInit(): void {
-    this.setHeightScroll(window.innerHeight);
-    window.addEventListener('resize', (par1) => {
-      this.setHeightScroll((par1.target as Window).innerHeight);
-    });
-
     // this._scrollDispatcher.scrolled().subscribe((value) => {
     //   console.log('Dispatcher scrolled', value);
     // });

@@ -1,6 +1,5 @@
 <cdk-virtual-scroll-viewport
   #viewport
-  [ngStyle]="{ height: this.heightScroll + 'px' }"
   (scrolledIndexChange)="scrolledIndexChange($event)"
   [itemSize]="itemSize"
   [minBufferPx]="window.innerHeight"

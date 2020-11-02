@@ -1,0 +1,25 @@
+:host {
+  color: black;
+  display: block;
+  width: 100%;
+
+  mat-list {
+    width: 100%;
+  }
+  .info {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: auto;
+  }
+
+  mat-list-item {
+    width: 100%;
+  }
+
+  cdk-virtual-scroll-viewport {
+    width: 100%;
+  }
+}

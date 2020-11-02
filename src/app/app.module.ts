@@ -18,7 +18,13 @@ import { NgContentTemplateItemComponent } from './components/ng-content-template
 import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsComponent } from './pages/forms/forms.component';
+import { RouterModule } from '@angular/router';
+import { CDKScrollingComponent } from './pages/cdkscrolling/cdkscrolling.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { environment } from '../environments/environment';
+import { AbstractSource } from '../services/test-provide/abstractSource';
+import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +38,8 @@ import { FormsComponent } from './pages/forms/forms.component';
     NgContentTemplateItemComponent,
     FetchDataComponent,
     FormsComponent,
+    CDKScrollingComponent,
+    SwitchServicesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +49,16 @@ import { FormsComponent } from './pages/forms/forms.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+    ScrollingModule,
   ],
   bootstrap: [AppComponent],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    {
+      provide: AbstractSource,
+      useClass: environment.typeSourceService,
+    },
+  ],
 })
 export class AppModule {}

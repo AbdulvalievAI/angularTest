@@ -8,6 +8,8 @@ import { LifeComponentsComponent } from './pages/life-components/life-components
 import { NgContentTemplateComponent } from './pages/ng-content-template/ng-content-template.component';
 import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
 import { FormsComponent } from './pages/forms/forms.component';
+import { CDKScrollingComponent } from './pages/cdkscrolling/cdkscrolling.component';
+import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,20 @@ const routes: Routes = [
       title: 'Forms',
     },
     component: FormsComponent,
+  },
+  {
+    path: 'cdkscrolling',
+    data: {
+      title: 'CDK Scrolling',
+    },
+    component: CDKScrollingComponent,
+  },
+  {
+    path: 'switchServices',
+    data: {
+      title: 'Switch Services',
+    },
+    component: SwitchServicesComponent,
   },
 ];
 

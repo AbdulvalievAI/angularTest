@@ -1,6 +1,11 @@
 export enum MyEnum {
-  TT,
-  YY,
-  EE,
-  DD,
+  BANANA,
+  APPLE,
+  MANGO,
 }
+
+function test(attr: keyof typeof MyEnum): void {}
+
+test('BANANA');
+test('APPLE');
+test('DOG');

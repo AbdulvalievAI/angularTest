@@ -149,22 +149,13 @@ console.log(
   'resultMoneyRole || moderator',
   countMoneyUsers(users, ['moderator'])
 );
-console.log(
-  'resultMoneyRole || user',
-  countMoneyUsers(users, ['user'])
-);
-console.log(
-  'resultMoneyRole || admin',
-  countMoneyUsers(users, ['admin'])
-);
+console.log('resultMoneyRole || user', countMoneyUsers(users, ['user']));
+console.log('resultMoneyRole || admin', countMoneyUsers(users, ['admin']));
 console.log(
   'resultMoneyRole || admin, moderator',
   countMoneyUsers(users, ['admin', 'moderator'])
 );
-console.log(
-  'resultMoneyRole || all',
-  countMoneyUsers(users)
-);
+console.log('resultMoneyRole || all', countMoneyUsers(users));
 
 // =====================================================================================
 // =====================================================================================

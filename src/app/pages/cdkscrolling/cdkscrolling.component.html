@@ -1,0 +1,49 @@
+<cdk-virtual-scroll-viewport
+  #viewport
+  [ngStyle]="{ height: this.heightScroll + 'px' }"
+  (scrolledIndexChange)="scrolledIndexChange($event)"
+  [itemSize]="itemSize"
+  [minBufferPx]="window.innerHeight"
+  [maxBufferPx]="window.innerHeight + window.innerHeight / 2"
+>
+  <mat-list role="list">
+    <mat-list-item
+      *cdkVirtualFor="let value of numbers1"
+      role="listitem"
+      [ngStyle]="{ height: itemSize + 'px' }"
+      >Item - {{ value }}</mat-list-item
+    >
+  </mat-list>
+</cdk-virtual-scroll-viewport>
+
+<mat-list class="info" role="list">
+  <mat-list-item role="listitem"
+    >Data Length - {{ viewport.getDataLength() }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Rendered Range -
+    {{ objectToString(viewport.getRenderedRange()) }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Viewport Size - {{ viewport.getViewportSize() }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Offset Start -
+    {{ viewport.getOffsetToRenderedContentStart() }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Scrolled Index Change - {{ scrolledIndexChangeNum }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Measure Rendered Content Size -
+    {{ viewport.measureRenderedContentSize() }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Measure Scroll Offset - Top:
+    {{ viewport.measureScrollOffset("top") }}</mat-list-item
+  >
+  <mat-list-item role="listitem"
+    >Measure Scroll Offset - Bottom:
+    {{ viewport.measureScrollOffset("bottom") }}</mat-list-item
+  >
+</mat-list>

@@ -9,6 +9,8 @@ import {
   CdkVirtualScrollViewport,
   ScrollDispatcher,
 } from '@angular/cdk/scrolling';
+import { BehaviorSubject } from 'rxjs';
+import { filter, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cdkscrolling',
@@ -19,12 +21,11 @@ import {
 export class CDKScrollingComponent implements OnInit, AfterViewInit {
   public itemSize = 50;
   public scrolledIndexChangeNum: number;
-
-  @ViewChild('viewport') viewport: CdkVirtualScrollViewport;
+  private lengthItems = 0;
+  @ViewChild('scrollCDK') scrollCDK: CdkVirtualScrollViewport;
   public window: Window;
-  public readonly numbers1: Array<number> = new Array(500)
-    .fill(null)
-    .map((_, index) => index);
+
+  public items = new BehaviorSubject<string[]>([]);
 
   constructor(private _scrollDispatcher: ScrollDispatcher) {}
 
@@ -37,30 +38,41 @@ export class CDKScrollingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this._scrollDispatcher.scrolled().subscribe((value) => {
-    //   console.log('Dispatcher scrolled', value);
-    // });
-    // this._scrollDispatcher
-    //   .ancestorScrolled(this.viewport1.getElementRef(), 1000)
-    //   .subscribe((value) => {
-    //     console.log('ancestorScrolled', value);
-    //     console.log('=========================');
-    //     console.log('ancestorScrolled');
-    //     console.log('getViewportSize', this.viewport1.getViewportSize());
-    //
-    //     console.log(
-    //       'getAncestorScrollContainers',
-    //       this._scrollDispatcher.getAncestorScrollContainers(
-    //         this.viewport1.getElementRef()
-    //       )
-    //     );
-    //   });
-    // this.viewport.elementScrolled().subscribe((value) => {
-    //   console.log('viewport | elementScrolled', value);
-    // });
+    this.scrollCDK
+      .elementScrolled()
+      .pipe(
+        filter(() => {
+          return this.scrollCDK.measureScrollOffset('bottom') <= 100;
+        }),
+        throttleTime(300)
+      )
+      .subscribe(this.scrolledHandler.bind(this));
+    setTimeout(this.scrolledHandler.bind(this), 300);
+  }
+
+  private scrolledHandler(): void {
+    const newItems = this.getNewItems();
+    this.setNewItems(newItems);
   }
 
   public objectToString(value: any): string {
     return JSON.stringify(value);
+  }
+
+  private getNewItems(): Array<string> {
+    const newItems: Array<number> = [];
+    for (
+      let i = this.items.value.length;
+      i < this.items.value.length + 30;
+      i++
+    ) {
+      newItems.push(i);
+    }
+    return newItems.map<string>((value) => `Item ${value}`);
+  }
+
+  private setNewItems(newItems: Array<string>): void {
+    this.items.next([...this.items.value, ...newItems]);
+    this.lengthItems = this.items.value.length;
   }
 }

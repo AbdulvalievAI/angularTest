@@ -1,48 +1,48 @@
 <cdk-virtual-scroll-viewport
-  #viewport
+  #scrollCDK
   (scrolledIndexChange)="scrolledIndexChange($event)"
   [itemSize]="itemSize"
-  [minBufferPx]="window.innerHeight"
-  [maxBufferPx]="window.innerHeight + window.innerHeight / 2"
+  [minBufferPx]="itemSize * 4"
+  [maxBufferPx]="itemSize * 4"
 >
   <mat-list role="list">
     <mat-list-item
-      *cdkVirtualFor="let value of numbers1"
+      *cdkVirtualFor="let item of items"
       role="listitem"
       [ngStyle]="{ height: itemSize + 'px' }"
-      >Item - {{ value }}</mat-list-item
+      >{{ item }}</mat-list-item
     >
   </mat-list>
 </cdk-virtual-scroll-viewport>
 
 <mat-list class="info" role="list">
   <mat-list-item role="listitem"
-    >Data Length - {{ viewport.getDataLength() }}</mat-list-item
+    >Data Length - {{ scrollCDK.getDataLength() }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Rendered Range -
-    {{ objectToString(viewport.getRenderedRange()) }}</mat-list-item
+    {{ objectToString(scrollCDK.getRenderedRange()) }}</mat-list-item
   >
   <mat-list-item role="listitem"
-    >Viewport Size - {{ viewport.getViewportSize() }}</mat-list-item
+    >Viewport Size - {{ scrollCDK.getViewportSize() }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Offset Start -
-    {{ viewport.getOffsetToRenderedContentStart() }}</mat-list-item
+    {{ scrollCDK.getOffsetToRenderedContentStart() }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Scrolled Index Change - {{ scrolledIndexChangeNum }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Measure Rendered Content Size -
-    {{ viewport.measureRenderedContentSize() }}</mat-list-item
+    {{ scrollCDK.measureRenderedContentSize() }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Measure Scroll Offset - Top:
-    {{ viewport.measureScrollOffset("top") }}</mat-list-item
+    {{ scrollCDK.measureScrollOffset("top") }}</mat-list-item
   >
   <mat-list-item role="listitem"
     >Measure Scroll Offset - Bottom:
-    {{ viewport.measureScrollOffset("bottom") }}</mat-list-item
+    {{ scrollCDK.measureScrollOffset("bottom") }}</mat-list-item
   >
 </mat-list>

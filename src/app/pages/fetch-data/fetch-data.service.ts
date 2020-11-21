@@ -8,11 +8,11 @@ import { IUser } from './IUser';
   providedIn: 'root',
 })
 export class FetchDataService {
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
   private _apiUrl =
     'https://40605b1b-1279-4694-8830-293335fb2aac.mock.pstmn.io';
 
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   constructor(private _httpClient: HttpClient) {}
 
   private getConfig(method: string): Observable<any> {

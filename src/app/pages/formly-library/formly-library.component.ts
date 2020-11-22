@@ -20,6 +20,31 @@ export class FormlyLibraryComponent {
         placeholder: 'Enter email',
         required: true,
       }
+    },
+    {
+      key: 'test-field-1',
+      templateOptions: {
+        type: 'password',
+        label: 'Password',
+        placeholder: 'Enter password',
+        icon: 'account_balance'
+      },
+      type: 'input-icon'
+    },
+    {
+      key: 'test-field-2',
+      templateOptions: {
+        type: 'text',
+        icon: "mode_edit"
+      },
+      type: 'input-icon'
+    },
+    {
+      key: 'test-field-3',
+      templateOptions: {
+        type: 'text'
+      },
+      type: 'input-icon'
     }
   ];
 

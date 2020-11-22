@@ -10,6 +10,7 @@ import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
 import { FormsComponent } from './pages/forms/forms.component';
 import { CDKScrollingComponent } from './pages/cdkscrolling/cdkscrolling.component';
 import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
+import {FormlyLibraryComponent} from "./pages/formly-library/formly-library.component";
 
 const routes: Routes = [
   {
@@ -75,6 +76,13 @@ const routes: Routes = [
     },
     component: SwitchServicesComponent,
   },
+  {
+    path: 'formlyLibrary',
+    data: {
+      title: 'Formly Library',
+    },
+    component: FormlyLibraryComponent,
+  }
 ];
 
 @NgModule({

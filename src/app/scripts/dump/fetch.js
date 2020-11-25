@@ -1,7 +1,7 @@
 const requestOptions = {
   method: "GET",
 };
-
+// TEST
 fetch(
   "https://8d609af6-394a-4bc4-a2a4-216f801f7ecd.mock.pstmn.io/users",
   requestOptions

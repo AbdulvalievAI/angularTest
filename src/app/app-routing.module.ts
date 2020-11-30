@@ -10,6 +10,7 @@ import { FetchDataComponent } from './pages/fetch-data/fetch-data.component';
 import { FormsComponent } from './pages/forms/forms.component';
 import { CDKScrollingComponent } from './pages/cdkscrolling/cdkscrolling.component';
 import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
+import { DynamicHeightComponent } from './pages/dynamic-height/dynamic-height.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,13 @@ const routes: Routes = [
       title: 'Switch Services',
     },
     component: SwitchServicesComponent,
+  },
+  {
+    path: 'dynamicHeight',
+    data: {
+      title: 'Dynamic Height',
+    },
+    component: DynamicHeightComponent,
   },
 ];
 

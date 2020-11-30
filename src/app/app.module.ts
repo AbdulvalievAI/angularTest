@@ -25,6 +25,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { environment } from '../environments/environment';
 import { AbstractSource } from '../services/test-provide/abstractSource';
 import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
+import { DynamicHeightComponent } from './pages/dynamic-height/dynamic-height.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { SwitchServicesComponent } from './pages/switch-services/switch-services
     FormsComponent,
     CDKScrollingComponent,
     SwitchServicesComponent,
+    DynamicHeightComponent,
   ],
   imports: [
     BrowserModule,

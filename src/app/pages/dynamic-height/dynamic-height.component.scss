@@ -1,0 +1,42 @@
+$width-item: 350px;
+:host {
+  .content {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    mat-form-field {
+      width: $width-item;
+    }
+    &__dynamic-block {
+      width: $width-item;
+      border: 1px solid red;
+      margin: 32px 0;
+      padding: 16px;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      box-sizing: border-box;
+    }
+    &__static-block {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      div {
+        width: $width-item;
+        padding: 16px;
+        height: fit-content;
+        box-sizing: border-box;
+      }
+      :nth-child(1) {
+        background-color: rgba(136, 255, 0, 0.4);
+      }
+      :nth-child(2) {
+        background-color: rgba(0, 102, 255, 0.4);
+      }
+      :nth-child(3) {
+        background-color: rgba(255, 162, 0, 0.4);
+      }
+    }
+  }
+}

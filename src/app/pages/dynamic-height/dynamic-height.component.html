@@ -1,0 +1,15 @@
+<div class="content">
+  <h1>Dynamic Height</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Text</mat-label>
+    <label>
+      <textarea matInput placeholder="Enter text" #field rows="10"></textarea>
+    </label>
+  </mat-form-field>
+  <div class="content__dynamic-block">{{field.value}}</div>
+  <div class="content__static-block">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, perspiciatis!</div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda autem beatae, dicta dignissimos ducimus enim eos eveniet ex itaque iusto laborum laudantium magnam nam nesciunt nostrum optio porro possimus quo repudiandae soluta temporibus voluptatem voluptatum? Aut cumque dolore dolores eius, iure minima minus nemo nisi non quae quis sequi voluptates?</div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cupiditate dignissimos doloribus dolorum eveniet facilis hic iure laborum maxime nemo odio, praesentium reprehenderit rerum temporibus ut voluptatem! Architecto cupiditate doloremque dolores doloribus earum eius ex fugiat, hic incidunt pariatur praesentium quaerat quasi, quidem ratione repellat similique, ullam vero voluptates. Aperiam eum inventore itaque maiores modi veniam. Animi aspernatur cum doloremque ducimus enim facere hic iusto, labore libero, praesentium repellat voluptas? Corporis cumque debitis enim fuga harum maxime minus mollitia necessitatibus tenetur? Eaque, fuga ipsum maxime numquam possimus reiciendis rem vitae? Delectus, dignissimos dolorum libero optio recusandae sapiente ullam voluptatem.</div>
+  </div>
+</div>

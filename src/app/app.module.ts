@@ -25,6 +25,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { environment } from '../environments/environment';
 import { AbstractSource } from '../services/test-provide/abstractSource';
 import { SwitchServicesComponent } from './pages/switch-services/switch-services.component';
+import { FormlyLibraryModule } from "./pages/formly-library/formly-library.module";
 import { DynamicHeightComponent } from './pages/dynamic-height/dynamic-height.component';
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DynamicHeightComponent } from './pages/dynamic-height/dynamic-height.co
     ReactiveFormsModule,
     RouterModule,
     ScrollingModule,
+    FormlyLibraryModule/*.forRoot({ extras: { lazyRender: true } })*/,
   ],
   bootstrap: [AppComponent],
   providers: [
